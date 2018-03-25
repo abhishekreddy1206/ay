@@ -1,0 +1,13 @@
+*.py[co~]
+*.js~
+*_initial.py
+*_auto_*.py
+00*.py
+email_info.py
+.idea/
+.DS_Store
+db.sqlite
+.coverage
+*coverage/
+*.egg-info/
+dist/
