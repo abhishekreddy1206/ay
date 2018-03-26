@@ -3,6 +3,7 @@
 *_initial.py
 *_auto_*.py
 00*.py
+db.py
 email_info.py
 .idea/
 .DS_Store
@@ -10,4 +11,5 @@ db.sqlite
 .coverage
 *coverage/
 *.egg-info/
+__pycache__/
 dist/
