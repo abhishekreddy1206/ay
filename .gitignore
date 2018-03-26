@@ -11,5 +11,6 @@ db.sqlite
 .coverage
 *coverage/
 *.egg-info/
+.vscode/
 __pycache__/
 dist/

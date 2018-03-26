@@ -1,50 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from base.us_states import STATE_CHOICES, USPS_CHOICES
+from base.fields import USPostalCodeField, USStateField
 from base.managers import ActiveManager
 
 
 # Create your models here.
-
-
-class USStateField(models.CharField):
-
-    description = _("U.S. state (two uppercase letters)")
-
-    def __init__(self, *args, **kwargs):
-        kwargs['choices'] = STATE_CHOICES
-        kwargs['max_length'] = 2
-        super(USStateField, self).__init__(*args, **kwargs)
-
-
-class USPostalCodeField(models.CharField):
-
-    description = _("U.S. postal code (two uppercase letters)")
-
-    def __init__(self, *args, **kwargs):
-        kwargs['choices'] = USPS_CHOICES
-        kwargs['max_length'] = 2
-        super(USPostalCodeField, self).__init__(*args, **kwargs)
-
-
-class PhoneNumberField(models.CharField):
-
-    description = _("Phone number")
-
-    def __init__(self, *args, **kwargs):
-        kwargs['max_length'] = 20
-        super(PhoneNumberField, self).__init__(*args, **kwargs)
-
-    def formfield(self, **kwargs):
-        from .forms import USPhoneNumberField
-        defaults = {'form_class': USPhoneNumberField}
-        defaults.update(kwargs)
-        return super(PhoneNumberField, self).formfield(**defaults)
 
 
 class BaseAddress(models.Model):
